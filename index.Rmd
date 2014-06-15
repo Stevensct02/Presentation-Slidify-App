@@ -1,0 +1,81 @@
+---
+title       : Statistical Process Control For Continuos Variables
+subtitle    : 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## Description of the shiny application: Statistical Process Control For Continuos Variables
+
+This application allow represent the process control for continuos variables, the available charts are: X-bar and Range Chart (x,r), X-bar and Standard deviation Chart (x,s) and individual movil range (imr) chart.
+
+```{r echo=FALSE,fig.height=4,fig.width=14}
+library(ggplot2)
+x<-rnorm(25,mean=2,sd=1)
+lcl<-1.5
+ucl<-3
+theme_set(theme_bw())
+data<-data.frame("x"=x, "mean"=rep(mean(x),25),"lcl"=rep(lcl,25),"ucl"=rep(ucl,25))
+
+p<-ggplot(data=data,aes(1:25,x))
+
+p+geom_line(colour="green")+geom_point(colour="green")+geom_line(aes(1:25,mean), colour="orange")+geom_point(aes(1:25,mean),colour="orange")+geom_line(aes(1:25,lcl), colour="red")+geom_point(aes(1:25,lcl),colour="red")+geom_line(aes(1:25,ucl), colour="red")+geom_point(aes(1:25,ucl),colour="red")+labs(title="X-bar Chart")
+
+```
+
+--- .class #id 
+
+## Advantages of the statistical process control
+
+With this app the enterprise can do it the following:
+
+1 Control the variation of the process
+
+2 Determine the process capability
+
+3 Establish the Cpk in the aggrements with the stakeholders
+
+4 Control the behavior of the process for identify noise factors
+
+5 Take actions for resolve the problems in the process
+
+---.class#id
+
+## Requirements of the application
+
+For use the statistical process control for continuos variables, you only need:
+
+1 Insert the nominal value of the specification
+
+2 Insert the lower  specification limit
+
+3 Insert the upper specification limit
+
+4 Select the kind of chart, for subsamples >1 the (x,R) and (X,S) chart are available, for individual measures the IMR Chart is the unique option that display the graphic.
+
+5 Upload the file with the subsamples
+
+
+--- .class #id 
+
+## Why you should use this app
+
+This app provide the simplest way for control the process of your company, furthermore, employees can used without any experience in programming, the only things that they need are the requierements presented above.
+
+Likewise, this tool provide an agile response to the noise factors that impact your process with the goal of satisfy the customer requirements. 
+
+
+
+
+
+
+# THANKS
+
+--- .class #id
+
+
